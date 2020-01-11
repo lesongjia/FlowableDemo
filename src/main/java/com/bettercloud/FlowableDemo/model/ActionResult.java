@@ -6,15 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Action {
-
-    private String id;
-    private String name;
-    private boolean stopOnFailure;
-
-    // use for testing purpose to mock the response
-    private boolean isSuccess;
+@Builder
+public class ActionResult {
+    private boolean success;
 }
