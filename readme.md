@@ -11,9 +11,7 @@ And the output
    : Running instance# : 0
    : Execute action: add user to group
    : Running instance# : 1
-   : Action: add user to group finished
-   : Execute action: remove user from group
-   : Running instance# : 1
-   : Action: remove user from group finished
+   : Action: add user to group finished with failure
    : Running instance# : 0
 ```
+Check out `WorkflowExecutionProcessTest` for process testing
