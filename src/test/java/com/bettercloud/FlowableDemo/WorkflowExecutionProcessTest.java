@@ -2,29 +2,26 @@ package com.bettercloud.FlowableDemo;
 
 import com.bettercloud.FlowableDemo.model.Action;
 import com.bettercloud.FlowableDemo.service.ExecutionContextService;
-import org.flowable.engine.RepositoryService;
-import org.flowable.engine.RuntimeService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flowable.engine.impl.test.PluggableFlowableTestCase;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.engine.test.Deployment;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.bettercloud.FlowableDemo.FlowableDemoApplication.tempExecutionId;
 
-@SpringBootTest
 public class WorkflowExecutionProcessTest extends PluggableFlowableTestCase {
 
-    @Autowired
     private ExecutionContextService contextService;
-    @Autowired
-    private RuntimeService runtimeService;
-    @Autowired
-    private RepositoryService repositoryService;
+
+    @BeforeEach
+    void setUp() {
+        contextService = new ExecutionContextService(new ObjectMapper());
+    }
 
     @Test
     @Deployment(resources = {"processes/WorkflowExecutionProcess.bpmn20.xml"})
